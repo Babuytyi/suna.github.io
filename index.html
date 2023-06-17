@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Wasted Time</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/papercss@latest/dist/paper.min.css">
+    <style>
+        /* Center the text on the page */
+        .center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        /* Make the font size bigger */
+        h1 {
+            font-size: 2rem;
+        }
+        /* Make the copyright text small and italic */
+        footer p {
+            font-style: italic;
+            font-size: small;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container center">
+        <h1>You wasted <span id="wasted-time">0</span> second in your life😁</h1>
+    </div>
+
+    <script>
+        var startTime = Date.now();
+        var lastTime = Date.now();
+        var wastedTime = 0;
+        var timer = setInterval(runTimer, 10);
+
+        function runTimer() {
+            lastTime = Date.now();
+            wastedTime = (lastTime - startTime) / 1000;
+
+            document.getElementById("wasted-time").innerHTML = Math.round(wastedTime * 10) / 10;
+        }
+    </script>
+    
+    <footer>
+        <p><em>&copy; hsk_the_editor</em></p>
+    </footer>
+    
+</body>
+</html>
+
